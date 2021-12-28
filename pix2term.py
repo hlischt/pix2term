@@ -35,7 +35,8 @@ with open(sys.argv[1], 'rb') as orig:
 
 for idx, i in enumerate(pix_list):
     ansi_num = avg_dist_idx(i) + 16
-    print(f'\033[48;5;{ansi_num}m  ', end='')
     if idx != 0 and idx % w == 0:
         print('\033[0m')
+    print(f'\033[48;5;{ansi_num}m  ', end='')
+
 print('\033[0m')
