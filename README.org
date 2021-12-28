@@ -27,4 +27,4 @@ This script does not use the eight normal and eight bright colors from VT100 ter
 ** Screenshots
 | [[./01.png]]                 | [[./02.png]]                           |
 |--------------------------+------------------------------------|
-| Art on [[https://commons.wikimedia.org/wiki/File:Wikipe-tan_pixel_art.png][Wikimedia Commons]] | [[https://commons.wikimedia.org/wiki/File:Wikipe-tan_chibi_icon.png][Art on Wikimedia Commons]] by [[https://twitter.com/kasuga391][Kasuga]] |
+| [[https://commons.wikimedia.org/wiki/File:Wikipe-tan_pixel_art.png][Art on Wikimedia Commons]] | [[https://commons.wikimedia.org/wiki/File:Wikipe-tan_chibi_icon.png][Art on Wikimedia Commons]] by [[https://twitter.com/kasuga391][Kasuga]] |
