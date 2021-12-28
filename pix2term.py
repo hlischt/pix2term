@@ -35,11 +35,16 @@ with open(sys.argv[1], 'rb') as orig:
     w = image.width
     pix_list = list(image.getdata())
 
+old_ansi = '\033[0m'
 for idx, i in enumerate(pix_list):
     ansi_num = avg_dist_idx(i) + 16
     ansi_code = f'\033[48;5;{ansi_num}m' if ansi_num >= 16 else '\033[0m'
     if idx != 0 and idx % w == 0:
         print('\033[0m')
-    print(f'{ansi_code}  ', end='')
+    if old_ansi == ansi_code and idx % w != 0:
+        print('  ', end='')
+    else:
+        print(f'{ansi_code}  ', end='')
+        old_ansi = ansi_code
 
 print('\033[0m')
