@@ -1,0 +1,32 @@
+* Pixel to Terminal
+
+** Usage
+#+BEGIN_SRC
+$ python3 pix2term.py image.png
+#+END_SRC
+
+Since the output is text with special characters, you can generate an image once and display it later with cat:
+#+BEGIN_SRC
+$ python3 pix2term.py image.png > image_ansi
+$ cat image_ansi
+#+END_SRC
+
+** Requirements
+This script depends on Python 3 and Pillow. Check [[https://pillow.readthedocs.io/en/stable/installation.html][Pillow's documentation]] for detailed instructions, but as with any Python package, it boils down to =pip install Pillow= or using your distro's package manager.
+
+** About
+This is a script that shows an image in a 256-color terminal emulator using [[https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit][ANSI escape codes]]. Each pixel is represented as a pair of spaces with a specific background color, which tries to match the original pixel color as closely as possible. In other words, you can create an image of up to =$((COLUMNS/2))= pixels without line wrapping. Note that a character in a terminal emulator may not have an aspect ratio of 2:1, which means images might appear slightly stretched.
+
+** Support
+This script does not use the eight normal and eight bright colors from VT100 terminal emulators; instead, it uses the extended 216-color palette accessible via =ESC[48;5;<n>m=. The reason behind this is that many people change these colors to use a custom color scheme, many of which sacrifice color variety for aesthetic reasons. As far as I'm aware, most people only change the main 16 colors, making the extended ones "safer" for images.
+
+** To do
+- Support true color terminals or actual image dislay protocols.
+- Maybe add a better color matching algorithm.
+
+** Screenshots
+#+CAPTION: Art on [[https://commons.wikimedia.org/wiki/File:Wikipe-tan_pixel_art.png][Wikimedia Commons]]
+[[./01.png]]
+
+#+CAPTION: [[https://commons.wikimedia.org/wiki/File:Wikipe-tan_chibi_icon.png][Art on Wikimedia Commons]] by [[https://twitter.com/kasuga391][Kasuga]]
+[[./02.png]]
