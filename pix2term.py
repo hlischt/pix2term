@@ -27,6 +27,8 @@ def avg_dist_idx(pixel: tuple):
 
 with open(sys.argv[1], 'rb') as orig:
     image = Image.open(orig)
+    if image.mode != 'RGBA':
+        image = image.convert(mode='RGBA')
     h = image.height
     w = image.width
     pix_list = list(image.getdata())
