@@ -11,6 +11,8 @@ for i in colorsteps:
             colors.append((i, j, k, 255))
 
 def avg_dist_idx(pixel: tuple):
+    if pixel[3] < 128:
+        return -1
     for idx, i in enumerate(colors):
         red_dist = abs(pixel[0] - i[0])
         green_dist = abs(pixel[1] - i[1])
@@ -35,8 +37,9 @@ with open(sys.argv[1], 'rb') as orig:
 
 for idx, i in enumerate(pix_list):
     ansi_num = avg_dist_idx(i) + 16
+    ansi_code = f'\033[48;5;{ansi_num}m' if ansi_num >= 16 else '\033[0m'
     if idx != 0 and idx % w == 0:
         print('\033[0m')
-    print(f'\033[48;5;{ansi_num}m  ', end='')
+    print(f'{ansi_code}  ', end='')
 
 print('\033[0m')
